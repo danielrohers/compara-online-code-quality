@@ -41,9 +41,7 @@ module.exports = class Login {
 
   // Register user
   registerUser(user, password) {
-    const lastIndex = this.users.length;
-    this.users[lastIndex] = user;
-    this.passwords[lastIndex] = password;
+    this.users[user] = password;
   }
 
   removeUser(user) {
