@@ -95,8 +95,13 @@ test('login', (t) => {
   }
 });
 
-test('fails logout', (t) => {
+test('fails logout user invalid', (t) => {
   const result = login.logout('user');
+  t.is(result, false);
+});
+
+test('fails logout user without session', (t) => {
+  const result = login.logout('user1');
   t.is(result, false);
 });
 
