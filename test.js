@@ -7,7 +7,25 @@ const registeredUsers = {
   user3: 'pass3',
 };
 
-const login = new Login(registeredUsers);
+let login;
+
+test('fails new Login()', (t) => {
+  try {
+    login = new Login({ user1: registeredUsers });
+    t.fail();
+  } catch (e) {
+    t.pass();
+  }
+});
+
+test('new Login()', (t) => {
+  try {
+    login = new Login(registeredUsers);
+    t.pass();
+  } catch (e) {
+    t.fail(e);
+  }
+});
 
 test('user exists', (t) => {
   const result = login.userExists('user1');
