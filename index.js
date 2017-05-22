@@ -50,11 +50,13 @@ module.exports = class Login {
   }
 
   removeUser(user) {
+    if (!this.userExists(user)) return false;
     const index = this.idx(user, this.users);
     this.users[index] = null;
     this.passwords[index] = null;
     this.users = this.users.filter(user => user !== null);
     this.passwords = this.passwords.filter(password => password !== null);
+    return true;
   }
 
   checkPassword(user, password) {
