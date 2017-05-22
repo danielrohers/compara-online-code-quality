@@ -36,15 +36,7 @@ module.exports = class Login {
 
   // Checks if user exists
   userExists(user) {
-    // Temp variable for storing the user if found
-    let temp = '';
-    for (const i of this.users) {
-      if (i === user) {
-        temp = user;
-      }
-    }
-    const exists = (temp !== '' && temp === user);
-    return exists;
+    return !!this.users[user];
   }
 
   // Register user
