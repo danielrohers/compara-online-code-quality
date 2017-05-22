@@ -14,7 +14,7 @@ module.exports = class Login {
       if (typeof password !== 'string') {
         throw new Error(`User password ${user} is not a String`);
       }
-      this.users[user] = password;
+      this.registerUser(user, password);
     });
   }
 
@@ -53,7 +53,7 @@ module.exports = class Login {
     // Check if the old password is correct
     if (!this.checkPassword(user, oldPassword)) return false;
 
-    this.users[user] = newPassword;
+    this.registerUser(user, newPassword);
     return true;
   }
 
