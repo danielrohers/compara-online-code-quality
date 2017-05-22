@@ -73,7 +73,7 @@ test('fails login invalid user', (t) => {
     login.login('user', 'pass4');
     t.fail();
   } catch (e) {
-    t.pass();
+    t.is(e.message, 'User invalid.');
   }
 });
 
@@ -82,7 +82,7 @@ test('fails login invalid password', (t) => {
     login.login('user4', 'pass');
     t.fail();
   } catch (e) {
-    t.pass();
+    t.is(e.message, 'Password invalid.');
   }
 });
 
