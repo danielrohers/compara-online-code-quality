@@ -57,9 +57,9 @@ module.exports = class Login {
   }
 
   checkPassword(user, password) {
-    const index = this.idx(user, this.users);
-    const passwordCorrect = this.passwords[index] === password;
-    return passwordCorrect;
+    const userPassword = this.users[user];
+    if (!userPassword) return false;
+    return userPassword === password;
   }
 
   updatePassword(user, oldPassword, newPassword) {
