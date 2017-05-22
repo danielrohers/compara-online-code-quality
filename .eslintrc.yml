@@ -5,3 +5,4 @@ rules:
     array-callback-return: off
     no-restricted-syntax: off
     no-shadow: off
+    strict: off

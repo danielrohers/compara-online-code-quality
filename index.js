@@ -1,5 +1,7 @@
 // This class is used for logins
 
+'use strict';
+
 class Login {
   constructor(hash) {
     this.sessions = [];
