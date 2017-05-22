@@ -62,20 +62,13 @@ module.exports = class Login {
 
   updatePassword(user, oldPassword, newPassword) {
     // First we check if the user exists
-    let user1 = '';
-    for (const i of this.users) {
-      if (i === user) {
-        user1 = user;
-      }
-    }
-    if (user1 === user) {
-      const index = this.idx(user, this.users);
-      if (this.passwords[index] === oldPassword) {
-        this.passwords[index] = newPassword;
-        return true;
-      }
-    }
-    return false;
+    if (!this.userExists(user)) return false;
+
+    // Check if the old password is correct
+    if (this.users[user] !== oldPassword) return false;
+
+    this.users[user] = newPassword;
+    return true;
   }
 
   login(user, password) {
