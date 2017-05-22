@@ -19,19 +19,9 @@ module.exports = class Login {
   }
 
   logout(user) {
-    try {
-      let exists = true;
-      this.sessions.forEach((session, i) => {
-        exists = session === user;
-        if (exists) {
-          this.sessions[i] = null;
-        }
-      });
-      this.sessions = this.sessions.filter(session => session !== null);
-      return exists;
-    } catch (e) {
-      return false;
-    }
+    if (!this.userExists(user)) return false;
+    if (!this.sessions[user]) return false;
+    return delete this.sessions[user];
   }
 
   // Checks if user exists
