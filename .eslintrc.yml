@@ -1,3 +1,6 @@
 extends: airbnb-base
 plugins:
   - import
+rules:
+    array-callback-return: off
+    no-restricted-syntax: off
