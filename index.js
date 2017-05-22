@@ -2,7 +2,7 @@
 
 'use strict';
 
-class Login {
+module.exports = class Login {
   constructor(hash) {
     this.sessions = [];
     this.users = [];
