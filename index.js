@@ -78,6 +78,8 @@ class Login {
     const index = this.idx(user, this.users);
     if (this.passwords[index] === password) {
       this.sessions.push(user);
+    } else {
+      throw new Error('Password invalid.');
     }
   }
 
