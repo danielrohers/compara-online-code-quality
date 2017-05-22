@@ -72,13 +72,9 @@ module.exports = class Login {
   }
 
   login(user, password) {
-
-    const index = this.idx(user, this.users);
-    if (this.passwords[index] === password) {
-      this.sessions.push(user);
-    } else {
-      throw new Error('Password invalid.');
-    }
+    if (!this.userExists(user)) throw new Error('User invalid.');
+    if (!this.checkPassword(user, password)) throw new Error('Password invalid.');
+    this.sessions[user] = true;
   }
 
   // Gets index of an element in an array
