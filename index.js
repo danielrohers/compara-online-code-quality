@@ -65,13 +65,14 @@ module.exports = class Login {
     if (!this.userExists(user)) return false;
 
     // Check if the old password is correct
-    if (this.users[user] !== oldPassword) return false;
+    if (!this.checkPassword(user, oldPassword)) return false;
 
     this.users[user] = newPassword;
     return true;
   }
 
   login(user, password) {
+
     const index = this.idx(user, this.users);
     if (this.passwords[index] === password) {
       this.sessions.push(user);
