@@ -1,5 +1,5 @@
 {
-  "name": "compara-online-technical-test",
+  "name": "compara-online-code-quality",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,6 +7,9 @@
     "start": "node index.js",
     "test": "ava -v test.js",
     "eslint": "eslint index.js"
+  },
+  "engines": {
+    "node": ">=4.0.0"
   },
   "author": "Daniel Rôhers Moura <rohersmoura@gmail.com> (https://github.com/danielrohers)",
   "devDependencies": {
